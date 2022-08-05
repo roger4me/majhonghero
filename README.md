@@ -1,1 +1,1 @@
-# majhonghero
+this is personal learning form another project, original project url is  https://github.com/blovemaple/mahjong.git
