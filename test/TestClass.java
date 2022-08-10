@@ -3,6 +3,8 @@ import com.eason.majiang.utils.LanguageManager;
 import org.junit.Test;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.Collections.nCopies;
 
@@ -62,6 +64,20 @@ public class TestClass {
     {
         System.out.println(Friut.Banana.name());
         System.out.println(Friut.Banana.ordinal());
+    }
+
+    @Test
+    public void TestLamada()
+    {
+      //  IntStream.range(0,10).forEach(x-> System.out.print(x + " "));
+
+        //IntStream.rangeClosed(0,10).boxed().forEach(x->System.out.print(x.getClass().toString()));
+
+       IntStream.rangeClosed(0,10).flatMap(x-> IntStream.of(x)).forEach(x-> System.out.print(x + " "));
+
+
+
+
     }
 }
 class Person
