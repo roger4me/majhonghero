@@ -7,24 +7,25 @@ import com.eason.majiang.game.GameContext;
 import java.util.List;
 
 public class InitStage implements GameStage {
+    public static final String NAME = "INIT";
     @Override
     public String getName() {
-        return null;
+        return NAME;
     }
 
     @Override
     public List<? extends PlayerActionType> getPlayerActionTYpes() {
-        return null;
+        return List.of();
     }
 
     @Override
     public List<? extends AutoActionType> getAutoActionTypes() {
-        return null;
+       return List.of();
     }
 
     @Override
     public Action getPriorAction(GameContext context) {
-        return null;
+        return new StageSwitchAction(context.getGameStrategy().getFirstStage().getName());
     }
 
     @Override

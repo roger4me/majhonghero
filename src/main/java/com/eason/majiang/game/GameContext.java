@@ -4,6 +4,9 @@ import com.eason.majiang.action.Action;
 import com.eason.majiang.object.MahjongTable;
 import com.eason.majiang.object.PlayerInfo;
 import com.eason.majiang.object.PlayerLocation;
+import com.eason.majiang.rule.GameStage;
+import com.eason.majiang.rule.GameStrategy;
+import com.eason.majiang.rule.TimeLimitStrategy;
 
 import java.util.List;
 

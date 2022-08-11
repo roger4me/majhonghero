@@ -1,6 +1,7 @@
 package com.eason.majiang.action;
 
 import com.eason.majiang.game.GameContext;
+import com.eason.majiang.game.GameContextPlayerView;
 import com.eason.majiang.object.PlayerLocation;
 import com.eason.majiang.object.Tile;
 
