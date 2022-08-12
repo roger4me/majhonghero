@@ -67,6 +67,18 @@ public class MahjongTable {
         drawedBottomSize += drawed.size();
         return drawed;
     }
+
+    public List<Tile> draw(int count) {
+        if (count <= 0 || count > tileWall.size()) {
+            return Collections.emptyList();
+        }
+        List<Tile> toBeDrawed = tileWall.subList(0, count);
+        List<Tile> drawed = new ArrayList<>(toBeDrawed);
+        toBeDrawed.clear();
+        return drawed;
+    }
+
+
     public Map<PlayerLocation, PlayerInfo> getPlayerInfos() {
         return playerInfos;
     }

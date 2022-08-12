@@ -1,7 +1,9 @@
 package com.eason.majiang.rule;
 
 import com.eason.majiang.action.Action;
+import com.eason.majiang.action.AutoActionType;
 import com.eason.majiang.action.PlayerActionType;
+import com.eason.majiang.action.StageSwitchAction;
 import com.eason.majiang.game.GameContext;
 
 import java.util.List;
@@ -14,7 +16,7 @@ public class InitStage implements GameStage {
     }
 
     @Override
-    public List<? extends PlayerActionType> getPlayerActionTYpes() {
+    public List<? extends PlayerActionType> getPlayerActionTypes() {
         return List.of();
     }
 

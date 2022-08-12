@@ -11,6 +11,6 @@ import java.util.Set;
 public interface TimeLimitStrategy {
     public static final TimeLimitStrategy NO_LIMIT =(xx,yy)-> null;
 
-    Integer getLimit(GameContext context, Map<PlayerLocation, Set<PlayerActionType>> choices);
+    public Integer getLimit(GameContext context, Map<PlayerLocation, Set<PlayerActionType>> choices);
 
 }

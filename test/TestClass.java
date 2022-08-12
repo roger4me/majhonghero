@@ -1,7 +1,11 @@
+import com.eason.majiang.object.Tile;
 import com.eason.majiang.utils.LamdaUtils;
 import com.eason.majiang.utils.LanguageManager;
 import org.junit.Test;
 
+import java.io.ObjectOutputStream;
+import java.util.Collections;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -77,6 +81,29 @@ public class TestClass {
 
 
 
+
+    }
+
+
+    @Test
+    public void TestCollections()
+    {
+       var result = Collections.singleton(1);
+
+       result.stream().forEach(System.out::println);
+    }
+
+    @Test
+    public void TestObejctNull()
+    {
+        var a =3;
+        Tile t  = null;
+        if(a > a+3)
+        {
+            t = Tile.of(null,3);
+        }
+
+        var ra = Objects.requireNonNull(t);
 
     }
 }

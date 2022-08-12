@@ -14,6 +14,17 @@ public class MyUtils {
 
     }
 
+    public static <E> Stream<Set<E>> combSetStream(Collection<E> coll, int size)
+    {
+        return combStream(coll, size, HashSet<E>::new, null, null);
+    }
+
+    public static <E> Stream<List<E>> combListStream(Collection<E> coll , int size)
+    {
+        return combStream(coll, size, ArrayList<E>::new, null, null);
+    }
+
+
     public static <E, C extends Collection<E>> Stream<C> combStream(Collection<E> coll, int size,
                                                                     Function<Collection<E>, C> combCollFactory, Predicate<E> elementFilter,
                                                                     BiPredicate<E, E> elementInCombFilter)

@@ -1,6 +1,7 @@
 package com.eason.majiang.game;
 
 import com.eason.majiang.action.Action;
+import com.eason.majiang.action.PlayerAction;
 import com.eason.majiang.object.MahjongTable;
 import com.eason.majiang.object.PlayerInfo;
 import com.eason.majiang.object.PlayerLocation;

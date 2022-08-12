@@ -1,6 +1,8 @@
 package com.eason.majiang.rule;
 
 import com.eason.majiang.action.Action;
+import com.eason.majiang.action.ActionTypeAndLocation;
+import com.eason.majiang.action.PlayerAction;
 import com.eason.majiang.action.PlayerActionType;
 import com.eason.majiang.game.GameContext;
 import com.eason.majiang.object.MahjongTable;
@@ -10,6 +12,7 @@ import com.eason.majiang.rule.win.FanType;
 import com.eason.majiang.rule.win.WinInfo;
 import com.eason.majiang.rule.win.WinType;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
