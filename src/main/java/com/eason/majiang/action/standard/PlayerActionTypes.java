@@ -8,7 +8,7 @@ import com.eason.majiang.game.GameContext;
 import com.eason.majiang.game.GameContextPlayerView;
 import com.eason.majiang.object.PlayerLocation;
 import com.eason.majiang.object.Tile;
-
+import static com.eason.majiang.object.TileGroupType.*;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
@@ -19,47 +19,47 @@ import static com.eason.majiang.object.TileGroupType.*;
 public enum  PlayerActionTypes implements PlayerActionType {
 
 
-//    CHI(new CpgActionType(CHI_GROUP, Collections.singleton(PREVIOUS))),
-//    /**
-//     * 碰
-//     */
-//    PENG(new CpgActionType(PENG_GROUP)),
-//    /**
-//     * 直杠
-//     */
-//    ZHIGANG(new CpgActionType(ZHIGANG_GROUP)),
-//    /**
-//     * 补杠
-//     */
-//    BUGANG(new BugangActionType()),
-//    /**
-//     * 暗杠
-//     */
-//    ANGANG(new AngangActionType()),
-//    /**
-//     * 补花
-//     */
-//    BUHUA(new BuhuaActionType()),
-//    /**
-//     * 打牌
-//     */
-//    DISCARD(new DiscardActionType()),
-//    /**
-//     * 打牌的同时听牌
-//     */
-//    DISCARD_WITH_TING(new DiscardWithTingActionType()),
-//    /**
-//     * 摸牌
-//     */
+    CHI(new CpgActionType(CHI_GROUP, Collections.singleton(PREVIOUS))),
+    /**
+     * 碰
+     */
+    PENG(new CpgActionType(PENG_GROUP)),
+    /**
+     * 直杠
+     */
+    ZHIGANG(new CpgActionType(ZHIGANG_GROUP)),
+    /**
+     * 补杠
+     */
+    BUGANG(new BlankActionType()),
+    /**
+     * 暗杠
+     */
+    ANGANG(new BlankActionType()),
+    /**
+     * 补花
+     */
+   BUHUA(new BlankActionType()),
+    /**
+     * 打牌
+     */
+    DISCARD(new BlankActionType()),
+    /**
+     * 打牌的同时听牌
+     */
+    DISCARD_WITH_TING(new BlankActionType()),
+    /**
+     * 摸牌
+     */
    DRAW(new DrawActionType()),
-//    /**
-//     * 摸底牌
-//     */
-//    DRAW_BOTTOM(new DrawBottomActionType()),
-//    /**
-//     * 和牌
-//     */
-//    WIN(new WinActionType());
+    /**
+     * 摸底牌
+     */
+    DRAW_BOTTOM(new BlankActionType()),
+    /**
+     * 和牌
+     */
+    WIN(new BlankActionType());
 
     ;
 

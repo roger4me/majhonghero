@@ -11,7 +11,7 @@ public enum PlayerLocation {
             return this != SELF;
         }
     }
-    public Relation getRelatiionOf(PlayerLocation other)
+    public Relation getRelationOf(PlayerLocation other)
     {
       int dis = other.ordinal() - this.ordinal();
       if(dis < 0)
