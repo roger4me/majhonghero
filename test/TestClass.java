@@ -3,9 +3,15 @@ import com.eason.majiang.utils.LamdaUtils;
 import com.eason.majiang.utils.LanguageManager;
 import org.junit.Test;
 
+import javax.sound.midi.Soundbank;
 import java.io.ObjectOutputStream;
 import java.util.Collections;
 import java.util.Objects;
+import java.util.Scanner;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -106,6 +112,102 @@ public class TestClass {
         var ra = Objects.requireNonNull(t);
 
     }
+
+
+    @Test
+    public void TestQueue() throws Exception
+    {
+        TaskQueue taskQueue = new TaskQueue();
+        var threadPool = Executors.newFixedThreadPool(6);
+
+        threadPool.execute(taskQueue::addTaskForThread);
+
+        while (true)
+        {
+            var futrueResult = threadPool.submit(taskQueue::getTask);
+
+            System.out.println(futrueResult.get());
+        }
+
+    }
+
+    ThreadLocal<Integer> tempValueLocal = ThreadLocal.withInitial(()->1);
+
+    public int tempValue = 1;
+
+    @Test
+    public void TestThreadLocal() {
+        var threadPool = Executors.newFixedThreadPool(5);
+        threadPool.execute(this::TestThreadLocalMethod);
+        threadPool.execute(this::TestThreadLocalMethod);
+        threadPool.execute(this::TestThreadLocalMethod);
+        threadPool.execute(this::TestThreadLocalMethod);
+        threadPool.execute(this::TestThreadLocalMethod);
+        try {
+            threadPool.shutdown();
+            while(!threadPool.awaitTermination(2000, TimeUnit.SECONDS))
+            {
+            }
+            System.out.println("all ThreadLocal Test Task has finished");
+
+            threadPool  = Executors.newFixedThreadPool(5);
+            threadPool.execute(this::TestCommonThreadMethod);
+            threadPool.execute(this::TestCommonThreadMethod);
+            threadPool.execute(this::TestCommonThreadMethod);
+            threadPool.execute(this::TestCommonThreadMethod);
+            threadPool.execute(this::TestCommonThreadMethod);
+            threadPool.shutdown();
+            while(!threadPool.awaitTermination(2000, TimeUnit.SECONDS))
+            {
+
+            }
+
+            System.out.println("all Common Test Task has finished");
+
+
+        }
+        catch(Exception e)
+        {
+
+            System.out.println(e.getMessage());
+
+        }
+
+
+
+
+
+
+        try {
+            System.in.read();
+        } catch(Exception e)
+        {
+
+        }
+    }
+    private void TestThreadLocalMethod()
+    {
+        var tempValue = tempValueLocal.get();
+        while (tempValue < 10) {
+            System.out.println("the value is " + tempValue + "-----" + Thread.currentThread().getName());
+            tempValueLocal.set(tempValue++);
+        }
+    }
+
+    private void TestCommonThreadMethod()
+    {
+        while (tempValue < 10) {
+            System.out.println("common_the value is " + tempValue + "-----" + Thread.currentThread().getName());
+            tempValueLocal.set(tempValue++);
+        }
+    }
+
+    @Test
+    public void TestCompletableFuture()
+    {
+        CompletableFuture c = CompletableFuture.
+    }
+
 }
 class Person
 {
