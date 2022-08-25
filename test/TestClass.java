@@ -206,9 +206,56 @@ public class TestClass {
     }
 
     @Test
-    public void TestCompletableFuture()
+    public void TestCompletableFuture() throws Exception
     {
-        
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(()->{
+            try
+            {
+                Thread.sleep(5000);
+                return "hello world";
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        } );
+
+        var result = future.join();
+        System.out.println("the result has been check out: "+ result);
+    }
+
+    @Test
+    public void TestCompletableFuture2()
+    {
+        CompletableFuture<Integer> future1 = CompletableFuture.supplyAsync(()->{
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return 10;
+        });
+
+        var future2 = future1.thenApplyAsync((x)->{
+            System.out.println(x+10);
+            return x+10;
+        });
+
+        var future3 = future2.thenAcceptAsync((x)->{
+            System.out.println(x+10);
+        });
+
+
+        System.out.println("done");
+        try
+        {
+            future3.join();
+        }
+        catch(Exception e)
+        {
+
+        }
+
     }
 
 }
